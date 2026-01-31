@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #121212;
+  --primary: #121212;
+  --secondary: #e5e5e5;
+  --card: #f9fafb;
+  --border: #e5e7eb;
+}
+
+[data-theme="dark"],
+.dark {
+  --background: #121212;
+  --foreground: #ffffff;
+  --primary: #ffffff;
+  --secondary: #1E1E1E;
+  --card: #1E1E1E;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+}
