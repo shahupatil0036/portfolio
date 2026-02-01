@@ -7,6 +7,8 @@
   --foreground: #121212;
   --primary: #121212;
   --secondary: #e5e5e5;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
   --card: #f9fafb;
   --border: #e5e7eb;
 }
@@ -17,6 +19,8 @@
   --foreground: #ffffff;
   --primary: #ffffff;
   --secondary: #1E1E1E;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
   --card: #1E1E1E;
   --border: rgba(255, 255, 255, 0.1);
 }

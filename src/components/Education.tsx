@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const educationData = [
     {
@@ -49,7 +50,15 @@ export default function Education() {
                             transition={{ delay: index * 0.1 }}
                             className="group relative bg-white dark:bg-[#1E1E1E] p-8 rounded-3xl border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300 hover:shadow-xl"
                         >
-                            <div className="flex flex-col h-full justify-between gap-4">
+                            <GlowingEffect
+                                spread={40}
+                                glow={true}
+                                disabled={false}
+                                proximity={64}
+                                inactiveZone={0.01}
+                                borderWidth={3}
+                            />
+                            <div className="relative z-10 flex flex-col h-full justify-between gap-4">
                                 <div>
                                     <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition-transform">
                                         <GraduationCap size={24} />

@@ -45,40 +45,30 @@ export default function Navbar() {
     const navLinks = [
         { name: "Home", href: "#hero" },
         { name: "About", href: "#about" },
-        { name: "Projects", href: "#projects" },
         { name: "Education", href: "#education" },
+        { name: "Projects", href: "#projects" },
         { name: "Contact", href: "#contact" },
     ];
 
     return (
         <motion.nav
-            initial={{ y: -100, opacity: 0 }}
+            initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-fit max-w-[95vw]`}
+            className="relative mx-auto mt-2 z-50 w-fit max-w-none"
         >
-            <div className={`
-        flex items-center gap-4 sm:gap-8 px-4 sm:px-6 py-3 rounded-full shadow-2xl transition-all duration-500
-        ${scrolled
-                    ? "bg-white/80 dark:bg-[#1E1E1E]/80 backdrop-blur-xl border border-black/5 dark:border-white/10"
-                    : "bg-white dark:bg-[#1E1E1E] border border-transparent"}
-      `}>
-
-                {/* Logo */}
-                <Link href="/" className="font-bold text-xl tracking-tighter text-black dark:text-white hover:opacity-70 transition-opacity">
-                    SP.
-                </Link>
+            <div className="flex items-center justify-center gap-2 px-6 py-3 rounded-full shadow-2xl bg-white dark:bg-[#1E1E1E] border border-black/5 dark:border-white/10 transition-all duration-500">
 
                 {/* Desktop Links */}
-                <ul className="hidden md:flex items-center gap-1">
+                <ul className="hidden md:flex items-center gap-2">
                     {navLinks.map((link) => {
                         const isActive = activeSection === link.href.substring(1);
                         return (
-                            <li key={link.name}>
+                            <li key={link.name} className="flex items-center">
                                 <Link
                                     href={link.href}
                                     className={`
-                    relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full
+                    relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-full flex items-center justify-center
                     ${isActive
                                             ? "text-black dark:text-white bg-black/5 dark:bg-white/10"
                                             : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"}
@@ -92,10 +82,10 @@ export default function Navbar() {
                 </ul>
 
                 {/* Right Actions */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                     <button
                         onClick={toggleTheme}
-                        className="p-2.5 rounded-full bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-black dark:text-white transition-colors"
+                        className="p-3 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-600 dark:text-gray-300 transition-colors flex items-center justify-center"
                         aria-label="Toggle Theme"
                     >
                         {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -103,7 +93,7 @@ export default function Navbar() {
 
                     <Link
                         href="#contact"
-                        className="hidden sm:flex items-center bg-black dark:bg-white text-white dark:text-black px-5 py-2.5 rounded-full text-sm font-bold hover:scale-105 active:scale-95 transition-all shadow-lg shadow-black/20 dark:shadow-white/20"
+                        className="hidden sm:flex items-center justify-center bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-full text-sm font-bold hover:scale-105 active:scale-95 transition-all shadow-lg shadow-black/20 dark:shadow-white/20"
                     >
                         Hire Me
                     </Link>
