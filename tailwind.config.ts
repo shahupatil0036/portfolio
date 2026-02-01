@@ -16,6 +16,10 @@ const config: Config = {
                 secondary: "var(--secondary)",
                 border: "var(--border)",
                 card: "var(--card)",
+                muted: {
+                    DEFAULT: "var(--muted)",
+                    foreground: "var(--muted-foreground)",
+                },
             },
             borderRadius: {
                 '2xl': '1rem',
