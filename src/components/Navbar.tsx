@@ -55,7 +55,7 @@ export default function Navbar() {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative mx-auto mt-2 z-50 w-fit max-w-none"
+            className="relative mx-auto mt-6 z-50 w-fit max-w-none"
         >
             <div className="flex items-center justify-center gap-2 px-6 py-3 rounded-full shadow-2xl bg-white dark:bg-[#1E1E1E] border border-black/5 dark:border-white/10 transition-all duration-500">
 

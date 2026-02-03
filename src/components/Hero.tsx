@@ -37,13 +37,13 @@ export default function Hero() {
 
                         {/* Row 2: Social Icons (Col 1) - Desktop Only */}
                         <div className="hidden lg:flex flex-col gap-6 lg:col-start-1 lg:row-start-2 pt-2">
-                            <a href="#" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
+                            <a href="https://www.linkedin.com/in/shahu-patil-4b9300237/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
                                 <Linkedin size={24} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
+                            <a href="https://github.com/shahupatil0036" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
                                 <Github size={24} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
+                            <a href="https://www.instagram.com/shahu_patil.007/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
                                 <Instagram size={24} />
                             </a>
                         </div>
@@ -98,13 +98,13 @@ export default function Hero() {
 
                         {/* Mobile Social Icons (Layout Fallback) */}
                         <div className="flex lg:hidden items-center gap-6 mt-6">
-                            <a href="#" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
+                            <a href="https://www.linkedin.com/in/shahu-patil-4b9300237/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
                                 <Linkedin size={24} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
+                            <a href="https://github.com/shahupatil0036" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
                                 <Github size={24} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
+                            <a href="https://www.instagram.com/shahu_patil.007/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors hover:scale-110 duration-300">
                                 <Instagram size={24} />
                             </a>
                         </div>

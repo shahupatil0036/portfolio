@@ -12,16 +12,16 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-6">
-                <a href="#" className="hover:text-black dark:hover:text-white transition-colors" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/shahu-patil-4b9300237/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors" aria-label="LinkedIn">
                     <Linkedin size={20} />
                 </a>
-                <a href="#" className="hover:text-black dark:hover:text-white transition-colors" aria-label="GitHub">
+                <a href="https://github.com/shahupatil0036" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors" aria-label="GitHub">
                     <Github size={20} />
                 </a>
                 <a href="#" className="hover:text-black dark:hover:text-white transition-colors" aria-label="Twitter">
                     <Twitter size={20} />
                 </a>
-                <a href="#" className="hover:text-black dark:hover:text-white transition-colors" aria-label="Instagram">
+                <a href="https://www.instagram.com/shahu_patil.007/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors" aria-label="Instagram">
                     <Instagram size={20} />
                 </a>
             </div>
