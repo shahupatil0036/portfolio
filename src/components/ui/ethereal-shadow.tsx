@@ -64,29 +64,27 @@ export function Component({
     const id = useInstanceId();
     const animationEnabled = animation && animation.scale > 0;
     const feColorMatrixRef = useRef<SVGFEColorMatrixElement>(null);
-    const hueRotateMotionValue = useMotionValue(180);
-    const hueRotateAnimation = useRef<AnimationPlaybackControls | null>(null);
-
+    const animationSpeed = animation ? mapRange(animation.speed, 1, 100, 0.5, 2) : 0;
     const displacementScale = animation ? mapRange(animation.scale, 1, 100, 20, 100) : 0;
-    const animationDuration = animation ? mapRange(animation.speed, 1, 100, 1000, 50) : 1;
 
     useEffect(() => {
         if (feColorMatrixRef.current && animationEnabled) {
-            hueRotateAnimation.current?.stop();
-            hueRotateMotionValue.set(0);
+            let rotation = 0;
+            let animationFrameId: number;
 
-            hueRotateAnimation.current = animate(hueRotateMotionValue, 360, {
-                duration: animationDuration / 25,
-                repeat: Infinity,
-                ease: "linear",
-                onUpdate: (value) => {
-                    feColorMatrixRef.current?.setAttribute("values", String(value));
-                }
-            });
+            const animate = () => {
+                rotation = (rotation + animationSpeed) % 360;
+                feColorMatrixRef.current?.setAttribute("values", String(rotation));
+                animationFrameId = requestAnimationFrame(animate);
+            };
 
-            return () => hueRotateAnimation.current?.stop();
+            animate();
+
+            return () => {
+                cancelAnimationFrame(animationFrameId);
+            };
         }
-    }, [animationEnabled, animationDuration, hueRotateMotionValue]);
+    }, [animationEnabled, animationSpeed]);
 
     return (
         <div
@@ -122,10 +120,11 @@ export function Component({
                                     in="undulation"
                                     type="hueRotate"
                                     values="180"
+                                    result="shiftedNoise"
                                 />
                                 <feDisplacementMap
                                     in="SourceGraphic"
-                                    in2="undulation"
+                                    in2="shiftedNoise"
                                     scale={displacementScale}
                                 />
                             </filter>

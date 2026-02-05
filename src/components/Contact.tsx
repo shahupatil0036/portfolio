@@ -82,7 +82,7 @@ export default function Contact() {
                                 id="message"
                                 name="message"
                                 required
-                                placeholder="Tell me about your project..."
+                                placeholder="Drop a message — I’ll get back to you."
                                 rows={4}
                                 className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
                             ></textarea>
