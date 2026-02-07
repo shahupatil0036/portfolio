@@ -5,6 +5,7 @@ import { Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { GlassButton } from "@/components/ui/glass-button";
 
 export default function Navbar() {
     const [isDark, setIsDark] = useState(true);
@@ -41,9 +42,9 @@ export default function Navbar() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="fixed top-0 inset-x-0 mx-auto mt-6 z-50 w-fit max-w-none"
         >
-            <div className={`flex items-center justify-center gap-2 pl-2 pr-2 py-2 rounded-full shadow-2xl transition-all duration-500 ${scrolled
-                ? "bg-white/70 dark:bg-[#1E1E1E]/70 backdrop-blur-xl border-black/10 dark:border-white/10"
-                : "bg-white/90 dark:bg-[#1E1E1E]/90 border-transparent shadow-xl" // Slightly more opaque when static for contrast
+            <div className={`flex items-center justify-center gap-2 px-3 py-3 rounded-full transition-all duration-500 ${scrolled
+                ? "bg-white/10 dark:bg-[#1E1E1E]/40 backdrop-blur-xl border-t border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+                : "bg-white/5 dark:bg-[#1E1E1E]/20 backdrop-blur-lg border border-white/10 shadow-lg"
                 } border`}>
 
                 {/* Desktop Links */}
@@ -52,16 +53,14 @@ export default function Navbar() {
                         const isActive = pathname === link.href;
                         return (
                             <li key={link.name} className="flex items-center">
-                                <Link
-                                    href={link.href}
-                                    className={`
-                    relative px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-full flex items-center justify-center
-                    ${isActive
-                                            ? "text-black dark:text-white bg-black/5 dark:bg-white/10 shadow-sm"
-                                            : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"}
-                  `}
-                                >
-                                    {link.name}
+                                <Link href={link.href}>
+                                    <GlassButton
+                                        size="sm"
+                                        className={`transition-colors duration-300 ${isActive ? "bg-white/20 dark:bg-white/10" : ""}`}
+                                        contentClassName={isActive ? "font-bold" : "font-normal"}
+                                    >
+                                        {link.name}
+                                    </GlassButton>
                                 </Link>
                             </li>
                         );

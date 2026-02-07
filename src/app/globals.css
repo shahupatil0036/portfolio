@@ -6,9 +6,64 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
 @layer utilities {
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-button-wrap {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .glass-button {
+    --glass-button-bg: rgba(255, 255, 255, 0.1);
+    --glass-button-border: rgba(255, 255, 255, 0.2);
+    --glass-button-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    background: var(--glass-button-bg);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-button-border);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dark .glass-button {
+    --glass-button-bg: rgba(0, 0, 0, 0.2);
+    --glass-button-border: rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-button-wrap:hover .glass-button {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .dark .glass-button-wrap:hover .glass-button {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-button-text {
+    z-index: 10;
+    color: inherit;
+  }
+
+  .glass-button-shadow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .glass-button-wrap:hover .glass-button-shadow {
+    opacity: 1;
   }
 }
 

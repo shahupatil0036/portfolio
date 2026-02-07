@@ -1,72 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Calendar } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { GraduationCap, School, Calendar, BookOpen } from "lucide-react";
 
-const educationData = [
+interface EducationItem {
+    institution: string;
+    degree: string;
+    year: string;
+    score: string;
+    icon: React.ElementType;
+}
+
+const educationData: EducationItem[] = [
     {
-        institution: "[Insert Placeholder for College Name]",
-        degree: "B.E. in Computer Engineering",
-        year: "Current",
-        type: "College",
+        institution: "Trinity College of Engineering and Research, Pune, MH",
+        degree: "Bachelor of Engineering (IT Engineering)",
+        year: "Present",
+        score: "Current CGPA: 8.85",
+        icon: GraduationCap,
     },
     {
-        institution: "[Insert Placeholder for College Name]",
+        institution: "SMK Arts and Science College, Deola, MH",
         degree: "Higher Secondary Certificate (HSC)",
-        year: "2023",
-        type: "HSC",
+        year: "2022",
+        score: "Percentage: 83.33%",
+        icon: School,
     },
     {
-        institution: "[Insert Placeholder for School Name]",
+        institution: "SKD International School, Deola, MH",
         degree: "Secondary School Certificate (SSC)",
-        year: "2021",
-        type: "SSC",
+        year: "2020",
+        score: "Percentage: 89.2%",
+        icon: BookOpen,
     },
 ];
 
 export default function Education() {
     return (
-        <section id="education" className="py-20 w-full">
+        <section id="education" className="py-20 w-full relative overflow-hidden">
+            <div className="absolute inset-0 bg-grid-white/[0.02] -z-[1]" />
+
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="space-y-12"
+                className="space-y-12 max-w-5xl mx-auto px-4"
             >
-                <div className="flex items-center gap-4">
-                    <div className="h-px bg-gray-200 dark:bg-white/10 flex-1"></div>
-                    <h2 className="text-3xl font-bold text-center">Education</h2>
-                    <div className="h-px bg-gray-200 dark:bg-white/10 flex-1"></div>
+                <div className="flex items-center gap-4 mb-16">
+                    <div className="h-px bg-gradient-to-r from-transparent to-gray-200 dark:to-white/10 flex-1"></div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-white/60">
+                        Education
+                    </h2>
+                    <div className="h-px bg-gradient-to-l from-transparent to-gray-200 dark:to-white/10 flex-1"></div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="relative border-l-2 border-gray-200 dark:border-white/10 ml-6 md:ml-12 space-y-12">
                     {educationData.map((edu, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="group relative bg-white dark:bg-[#1E1E1E] p-8 rounded-3xl border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300 hover:shadow-xl"
+                            className="relative pl-8 md:pl-12"
                         >
-                            <GlowingEffect
-                                spread={40}
-                                glow={true}
-                                disabled={false}
-                                proximity={64}
-                                inactiveZone={0.01}
-                                borderWidth={3}
-                            />
-                            <div className="relative z-10 flex flex-col h-full justify-between gap-4">
-                                <div>
-                                    <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition-transform">
-                                        <GraduationCap size={24} />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 font-medium">{edu.institution}</p>
+                            {/* Timeline Node */}
+                            <div className="absolute -left-[25px] top-0 w-12 h-12 rounded-full bg-white dark:bg-[#0a0a0a] border-4 border-blue-500/20 shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
+                                    <edu.icon size={16} className="text-white" />
                                 </div>
-                                <div className="flex items-center gap-2 text-sm text-gray-400 sm:mt-4">
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4 sm:items-start justify-between bg-white dark:bg-[#1E1E1E] p-6 rounded-2xl border border-gray-200 dark:border-white/5 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                                <div className="space-y-2">
+                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                        {edu.degree}
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-400 font-medium">
+                                        {edu.institution}
+                                    </p>
+                                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mt-2 inline-block bg-gray-100 dark:bg-white/5 px-3 py-1 rounded-full border border-gray-200 dark:border-white/10">
+                                        {edu.score}
+                                    </p>
+                                </div>
+
+                                <div className="flex items-center gap-2 text-sm text-gray-400 whitespace-nowrap sm:mt-2 bg-gray-50 dark:bg-white/5 px-3 py-1 rounded-full w-fit sm:w-auto h-fit">
                                     <Calendar size={14} />
                                     <span>{edu.year}</span>
                                 </div>
