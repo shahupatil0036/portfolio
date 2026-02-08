@@ -7,23 +7,23 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const projects = [
     {
-        title: "Project One",
-        description: "A seamless mobile banking experience built with Kotlin and Jetpack Compose.",
-        icon: "🏦", // Placeholder for app icon
-        tags: ["Kotlin", "Jetpack Compose", "Room"],
+        title: "Wiggles - Puppy Adoption App",
+        description: "A modern Android application demonstrating Jetpack Compose UI with smooth navigation transitions.",
+        icon: "🐶",
+        tags: ["Kotlin", "Jetpack Compose", "Android"],
         className: "md:col-span-2",
     },
     {
-        title: "Project Two",
-        description: "Cross-platform fitness tracker using Flutter and Firebase backend.",
-        icon: "💪",
-        tags: ["Flutter", "Firebase", "Dart"],
+        title: "QUIK - Messaging App",
+        description: "Open source messaging app with scheduled sending, backup/restore, and speech-to-text features.",
+        icon: "💬",
+        tags: ["Kotlin", "Android SDK", "Open Source"],
         className: "md:col-span-1",
     },
     {
         title: "Project Three",
         description: "Real-time chat application with end-to-end encryption.",
-        icon: "💬",
+        icon: "🔒",
         tags: ["Java", "WebSockets", "SQL"],
         className: "md:col-span-1",
     },
