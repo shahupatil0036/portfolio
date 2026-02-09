@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
+import { SectionHeading } from "@/components/ui/section-heading";
+
 export default function Contact() {
     const form = useRef<HTMLFormElement>(null);
     const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -44,7 +46,7 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="relative z-10 max-w-2xl mx-auto"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6">Contact Me</h2>
+                    <SectionHeading title="Contact Me" className="text-white dark:text-white" />
                     <p className="text-gray-400 mb-10 text-lg">
                         Have a project in mind? Let's collaborate to create something amazing.
                     </p>

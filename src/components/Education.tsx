@@ -35,6 +35,8 @@ const educationData: EducationItem[] = [
     },
 ];
 
+import { SectionHeading } from "@/components/ui/section-heading";
+
 export default function Education() {
     return (
         <section id="education" className="py-20 w-full relative overflow-hidden">
@@ -46,13 +48,7 @@ export default function Education() {
                 viewport={{ once: true }}
                 className="space-y-12 max-w-5xl mx-auto px-4"
             >
-                <div className="flex items-center gap-4 mb-16">
-                    <div className="h-px bg-gradient-to-r from-transparent to-gray-200 dark:to-white/10 flex-1"></div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-white/60">
-                        Education
-                    </h2>
-                    <div className="h-px bg-gradient-to-l from-transparent to-gray-200 dark:to-white/10 flex-1"></div>
-                </div>
+                <SectionHeading title="Education" />
 
                 <div className="relative border-l-2 border-gray-200 dark:border-white/10 ml-6 md:ml-12 space-y-12">
                     {educationData.map((edu, index) => (

@@ -16,18 +16,19 @@ const techStack = [
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
 ];
 
+import { SectionHeading } from "@/components/ui/section-heading";
+
 export default function About() {
     return (
         <section id="about" className="py-20 w-full">
             <div className="bg-gray-50 dark:bg-[#1E1E1E] rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-white/5">
+                <SectionHeading title="About Me" />
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="max-w-3xl mx-auto text-center space-y-8"
+                    className="max-w-3xl mx-auto text-center space-y-8 relative z-10"
                 >
-                    <h2 className="text-2xl font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">About Me</h2>
-
                     <p className="text-xl md:text-2xl leading-relaxed font-light text-gray-800 dark:text-gray-200">
                         I am passionate about bridging the gap between people and technology through intuitive
                         <span className="font-semibold text-black dark:text-white"> Android development</span>.

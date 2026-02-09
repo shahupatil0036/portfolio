@@ -36,6 +36,8 @@ const projects = [
     },
 ];
 
+import { SectionHeading } from "@/components/ui/section-heading";
+
 export default function Projects() {
     return (
         <section id="projects" className="py-20 w-full">
@@ -44,9 +46,13 @@ export default function Projects() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
             >
-                <div className="flex items-center justify-between mb-12">
-                    <h2 className="text-3xl font-bold">Selected Projects</h2>
-                    <button className="text-sm font-semibold underline decoration-2 underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                <div className="flex flex-col items-center mb-12 relative">
+                    <SectionHeading title="Selected Projects" className="mb-0" />
+                    <button className="text-sm font-semibold underline decoration-2 underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300 transition-colors absolute right-0 bottom-4 hidden md:block">
+                        View All
+                    </button>
+                    {/* Mobile View All button positioned below heading */}
+                    <button className="md:hidden text-sm font-semibold underline decoration-2 underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300 transition-colors mt-[-1rem] z-20">
                         View All
                     </button>
                 </div>
