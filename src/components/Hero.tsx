@@ -16,7 +16,7 @@ export default function Hero() {
     };
 
     return (
-        <section id="hero" className="min-h-screen flex items-center justify-center pt-2 pb-12">
+        <section id="home" className="min-h-screen flex items-center justify-center pt-2 pb-12">
             <div className="container px-4 md:px-6">
                 <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
                     {/* Left Column: Content */}

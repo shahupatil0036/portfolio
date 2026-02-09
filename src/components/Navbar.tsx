@@ -11,28 +11,48 @@ export default function Navbar() {
     const [isDark, setIsDark] = useState(true);
     const [scrolled, setScrolled] = useState(false);
     const { scrollY } = useScroll();
-    const pathname = usePathname();
-
-    useMotionValueEvent(scrollY, "change", (latest) => {
-        setScrolled(latest > 20);
-    });
+    const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
-        if (isDark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
+        const sections = document.querySelectorAll("section[id]");
+        const options = {
+            root: null,
+            rootMargin: "-50% 0px -50% 0px", // Activate when section is in middle of viewport
+            threshold: 0,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        }, options);
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => sections.forEach((section) => observer.unobserve(section));
+    }, []);
+
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.replace("#", "");
+        const elem = document.getElementById(targetId);
+        if (elem) {
+            // Check if we can just use scrollIntoView, or if we need manual calculation due to sticky header
+            // With scroll-padding-top in globals.css, scrollIntoView should work perfectly
+            elem.scrollIntoView({ behavior: "smooth" });
         }
-    }, [isDark]);
+    };
 
     const toggleTheme = () => setIsDark(!isDark);
 
     const navLinks = [
-        { name: "Home", href: "/" },
-        { name: "About", href: "/about" },
-        { name: "Education", href: "/education" },
-        { name: "Projects", href: "/projects" },
-        { name: "Contact", href: "/contact" },
+        { name: "Home", href: "#home" },
+        { name: "About", href: "#about" },
+        { name: "Education", href: "#education" },
+        { name: "Projects", href: "#projects" },
+        { name: "Contact", href: "#contact" },
     ];
 
     return (
@@ -50,10 +70,10 @@ export default function Navbar() {
                 {/* Desktop Links */}
                 <ul className="hidden md:flex items-center gap-1">
                     {navLinks.map((link) => {
-                        const isActive = pathname === link.href;
+                        const isActive = activeSection === link.href.substring(1);
                         return (
                             <li key={link.name} className="flex items-center">
-                                <Link href={link.href}>
+                                <Link href={link.href} onClick={(e) => scrollToSection(e, link.href)}>
                                     <GlassButton
                                         size="sm"
                                         className={`transition-colors duration-300 ${isActive ? "bg-white/20 dark:bg-white/10" : ""}`}
