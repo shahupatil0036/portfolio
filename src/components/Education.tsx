@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { GraduationCap, School, Calendar, BookOpen } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface EducationItem {
     institution: string;
@@ -42,22 +42,13 @@ export default function Education() {
         <section id="education" className="py-20 w-full relative overflow-hidden">
             <div className="absolute inset-0 bg-grid-white/[0.02] -z-[1]" />
 
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="space-y-12 max-w-5xl mx-auto px-4"
-            >
+            <ScrollReveal className="space-y-12 max-w-5xl mx-auto px-4">
                 <SectionHeading title="Education" />
 
                 <div className="relative border-l-2 border-gray-200 dark:border-white/10 ml-6 md:ml-12 space-y-12">
                     {educationData.map((edu, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
                             className="relative pl-8 md:pl-12"
                         >
                             {/* Timeline Node */}
@@ -85,10 +76,10 @@ export default function Education() {
                                     <span>{edu.year}</span>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
-            </motion.div>
+            </ScrollReveal>
         </section>
     );
 }

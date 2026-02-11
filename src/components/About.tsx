@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const techStack = [
     { name: "Android", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
@@ -23,12 +23,7 @@ export default function About() {
         <section id="about" className="py-20 w-full">
             <div className="bg-gray-50 dark:bg-[#1E1E1E] rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-white/5">
                 <SectionHeading title="About Me" />
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="max-w-3xl mx-auto text-center space-y-8 relative z-10"
-                >
+                <ScrollReveal className="max-w-3xl mx-auto text-center space-y-8 relative z-10">
                     <p className="text-xl md:text-2xl leading-relaxed font-light text-gray-800 dark:text-gray-200">
                         I am passionate about bridging the gap between people and technology through intuitive
                         <span className="font-semibold text-black dark:text-white"> Android development</span>.
@@ -39,14 +34,9 @@ export default function About() {
                         <h3 className="text-sm font-semibold mb-6 text-gray-400 uppercase tracking-widest">Tech Stack</h3>
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
                             {techStack.map((tech, index) => (
-                                <motion.div
+                                <div
                                     key={tech.name}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ scale: 1.1, rotate: 3 }}
-                                    className="relative flex flex-col items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm"
+                                    className="group relative flex flex-col items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5 shadow-sm hover:scale-110 hover:-rotate-3 transition-transform duration-300"
                                 >
                                     <GlowingEffect
                                         spread={40}
@@ -67,11 +57,11 @@ export default function About() {
                                         </div>
                                         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{tech.name}</span>
                                     </div>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
                     </div>
-                </motion.div>
+                </ScrollReveal>
             </div>
         </section>
     );

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowDown, Mail, Download, Check, Linkedin, Github, Instagram } from "lucide-react";
 import Image from "next/image";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export default function Hero() {
     const [copied, setCopied] = useState(false);
@@ -20,12 +20,7 @@ export default function Hero() {
             <div className="container px-4 md:px-6">
                 <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
                     {/* Left Column: Content */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex flex-col items-center lg:grid lg:grid-cols-[auto_1px_1fr] lg:gap-x-8 lg:gap-y-6 lg:items-start text-center lg:text-left order-2 lg:order-1"
-                    >
+                    <ScrollReveal className="flex flex-col items-center lg:grid lg:grid-cols-[auto_1px_1fr] lg:gap-x-8 lg:gap-y-6 lg:items-start text-center lg:text-left order-2 lg:order-1">
                         {/* Row 1: Status Badge (Col 3) */}
                         <div className="lg:col-start-3 lg:row-start-1 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold border border-green-200 dark:border-green-800 mb-6 lg:mb-0 w-fit whitespace-nowrap">
                             <span className="relative flex h-2 w-2">
@@ -108,16 +103,11 @@ export default function Hero() {
                                 <Instagram size={24} />
                             </a>
                         </div>
-                    </motion.div>
+                    </ScrollReveal>
 
                     {/* Right Column: Image */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                        className="flex justify-center lg:justify-end order-1 lg:order-2"
-                    >
-                        <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-white dark:border-white/10 shadow-2xl group">
+                    <ScrollReveal className="flex justify-center lg:justify-end order-1 lg:order-2">
+                        <div className="relative w-72 h-72 md:w-96 h-96 rounded-full overflow-hidden border-4 border-white dark:border-white/10 shadow-2xl group">
                             <Image
                                 src="/images/CV.jpg"
                                 alt="Shahu Patil"
@@ -126,7 +116,7 @@ export default function Hero() {
                                 className="object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                         </div>
-                    </motion.div>
+                    </ScrollReveal>
                 </div>
             </div>
         </section>

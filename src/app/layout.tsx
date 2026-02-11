@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Component as ShadowOverlay } from "@/components/ui/ethereal-shadow";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,9 +37,9 @@ export default function RootLayout({
                         animation={{ scale: 100, speed: 90 }}
                         noise={{ opacity: 1, scale: 1.2 }}
                         sizing="fill"
-                        className="absolute inset-0 -z-10"
                     />
                 </div>
+                <ScrollProgress className="fixed top-0 z-[100] h-1 bg-blue-500 dark:bg-blue-400" />
                 <Navbar />
                 {children}
                 <Footer />

@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const projects = [
     {
@@ -41,11 +41,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 export default function Projects() {
     return (
         <section id="projects" className="py-20 w-full">
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-            >
+            <ScrollReveal>
                 <div className="flex flex-col items-center mb-12 relative">
                     <SectionHeading title="Selected Projects" className="mb-0" />
                     <button className="text-sm font-semibold underline decoration-2 underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300 transition-colors absolute right-0 bottom-4 hidden md:block">
@@ -59,12 +55,8 @@ export default function Projects() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {projects.map((project, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
                             className={`group relative bg-[#1E1E1E] dark:bg-[#1E1E1E] bg-gray-100 rounded-3xl p-8 border border-transparent dark:border-white/5 hover:border-white/10 dark:hover:bg-[#252525] hover:bg-white transition-all duration-300 ${project.className}`}
                         >
                             <GlowingEffect
@@ -102,10 +94,10 @@ export default function Projects() {
                             </div>
 
                             <a href="#" className="absolute inset-0 z-20" aria-label={`View ${project.title}`}></a>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
-            </motion.div>
+            </ScrollReveal>
         </section>
     );
 }

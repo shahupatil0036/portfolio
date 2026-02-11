@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -40,12 +40,7 @@ export default function Contact() {
                 {/* Decorative Gradients */}
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 pointer-events-none"></div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="relative z-10 max-w-2xl mx-auto"
-                >
+                <ScrollReveal className="relative z-10 max-w-2xl mx-auto">
                     <SectionHeading title="Contact Me" className="text-white dark:text-white" />
                     <p className="text-gray-400 mb-10 text-lg">
                         Have a project in mind? Let's collaborate to create something amazing.
@@ -106,7 +101,7 @@ export default function Contact() {
                             <p className="text-red-400 text-sm mt-2">Failed to send message. Please try again.</p>
                         )}
                     </form>
-                </motion.div>
+                </ScrollReveal>
             </div>
         </section>
     );
